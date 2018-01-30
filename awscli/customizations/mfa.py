@@ -34,8 +34,8 @@ def inject_mfa_provider_cache(session, **kwargs):
         # up the stack will raise ProfileNotFound, otherwise
         # the configure (and other) commands will work as expected.
         LOG.debug("ProfileNotFound caught when trying to inject "
-                  "assume-role cred provider cache.  Not configuring "
-                  "JSONFileCache for assume-role.")
+                  "config-file mfa provider cache.  Not configuring "
+                  "JSONFileCache for config-file.")
         return
     provider = cred_chain.get_provider('config-file')
     provider.cache = JSONFileCache(CACHE_DIR)
